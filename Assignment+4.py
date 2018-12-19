@@ -1,17 +1,19 @@
 
 # coding: utf-8
 
-# In[20]:
+# In[25]:
 
 import pandas as pd
 import numpy as np
 
-d = pd.DataFrame(np.zeros((10, 10)))
-d.iloc[9,9] = 10
+rowcolList = [5, 10, 20, 50, 100]
 
-d2 = pd.DataFrame(np.zeros((5, 5)))
-d2.iloc[4,4] = 10
+for world in rowcolList:
+    
+    endstate = (world-1, world-1)
 
-print(d)
-print(d2)
+    d = pd.DataFrame(np.zeros((world, world)))
+    d.iloc[endstate] = 10
+
+    print(d)
 
