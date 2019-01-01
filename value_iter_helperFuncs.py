@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import random
+from random import randint
+import operator
 
 class World:
     def __init__(self, Xdimension, Ydimension, obstacles, Nendstates, endstates, negativeEndstates, discount, reward, transitionProbs, Grid):
@@ -51,4 +53,33 @@ def PreprocessWorlds(WorldList):
         print("\n", grid)
 
 def PostprocessWorlds(WorldList):
-    print("eey")
+    
+    for World in WorldList:
+        
+        grid = World.Grid
+        
+        #actions
+        startpoint = [0, 0]
+        up = [startpoint[0] + 1, startpoint[1]]
+        down = [startpoint[0] - 1, startpoint[1]]
+
+        left = [startpoint[0], startpoint[1] - 1]
+        right = [startpoint[0], startpoint[1] + 1]
+
+        ActionList = [up, down, left, right]
+
+        end_point = [0,1]
+        
+        Searching = True
+        
+        while(Searching):
+            index = randint(0, 3)
+            
+            try:
+                startpoint = list(map(operator.add, startpoint, grid[ActionList[index]]))
+            except KeyError:
+                startpoint = [0,0]
+            print(startpoint)
+            if startpoint == end_point:
+                Searching = False
+        
