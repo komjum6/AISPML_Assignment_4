@@ -54,8 +54,6 @@ if __name__ == "__main__":
     state = env.reset()
     states = []
 
-    Searching = True
-
 
     for x in range(0, 200):
 
