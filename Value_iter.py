@@ -9,24 +9,9 @@ import random
 
 from value_iter_helperFuncs import fillWorlds, PreprocessWorlds, PostprocessWorlds, World
 
-WorldList = fillWorlds()
+if __name__ == "__main__":
+	WorldList = fillWorlds()
 
-PreprocessWorlds(WorldList)
+	PreprocessWorlds(WorldList)
 
-PostprocessWorlds(WorldList)
-    
-# WORLDS
-# obstacles
-# x * y
-# number of endstates
-# negative endstates
-
-# DISCOUNTS
-# discount values
-
-# REWARDS
-# reward values
-
-# PROBABILITIES
-# transition probabilities
-
+	PostprocessWorlds(WorldList)
